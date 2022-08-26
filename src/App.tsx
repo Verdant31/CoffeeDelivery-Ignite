@@ -6,14 +6,17 @@ import { defaultTheme } from './styles/themes/default'
 import { BrowserRouter } from 'react-router-dom'
 // Router
 import { Router } from './routes'
+import { CartContextProvider } from './contexts/CartContext'
 
 export function App() {
   return (
-    <BrowserRouter>
-      <ThemeProvider theme={defaultTheme}>
-        <Router />
-        <GlobalStyle />
-      </ThemeProvider>
-    </BrowserRouter>
+    <CartContextProvider>
+      <BrowserRouter>
+        <ThemeProvider theme={defaultTheme}>
+          <Router />
+          <GlobalStyle />
+        </ThemeProvider>
+      </BrowserRouter>
+    </CartContextProvider>
   )
 }

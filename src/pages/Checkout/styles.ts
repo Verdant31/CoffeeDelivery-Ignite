@@ -3,6 +3,7 @@ import styled from 'styled-components'
 export const Container = styled.div`
   display: flex;
   margin-top: 4.5rem;
+  justify-content: center;
   gap: 2rem;
   section:nth-of-type(2) h1 {
     font-size: 1.125rem;
@@ -32,8 +33,17 @@ export const SubmitOrderButton = styled.button`
   border-radius: 6px;
   margin-top: 1.5rem;
   margin-bottom: 2rem;
+  transition: 0.3s;
+  :hover {
+    background: ${(props) => props.theme.brandYellowDark};
+  }
 `
 
+export const AddressFormContainer = styled.form`
+  padding: 2.5rem;
+  border-radius: 6px;
+  background: ${(props) => props.theme.baseCard};
+`
 export const AddressContainer = styled.div`
   width: 40rem;
 

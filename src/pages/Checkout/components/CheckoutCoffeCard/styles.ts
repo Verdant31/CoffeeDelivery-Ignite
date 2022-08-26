@@ -29,6 +29,10 @@ export const ActionsContainer = styled.div`
     background: ${(props) => props.theme.baseButton};
     padding: 0.40625rem 0.5rem;
     border-radius: 6px;
+    transition: 0.3s;
+    :hover {
+      background: ${(props) => props.theme.baseHover};
+    }
     p {
       font-size: 0.75rem;
     }

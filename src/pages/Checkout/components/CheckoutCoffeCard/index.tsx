@@ -1,22 +1,41 @@
 import { Trash } from 'phosphor-react'
+import { CartItem } from '../../../../@types/cart'
 import { Counter } from '../../../../components/Counter'
+import { useCart } from '../../../../contexts/CartContext'
 import { ActionsContainer, CheckoutCardContainer, PriceText } from './styles'
 
-export function CheckoutCoffeCard() {
+interface CheckoutCoffeeCardProps {
+  item: CartItem
+}
+
+export function CheckoutCoffeCard({ item }: CheckoutCoffeeCardProps) {
+  const { removeItemFromCart, addItemToCart } = useCart()
+
+  const handleAddItemToCart = () => {
+    addItemToCart(item)
+  }
+  const handleRemoveItemFromCart = () => {
+    removeItemFromCart(item)
+  }
+
   return (
     <CheckoutCardContainer>
-      <img src="/coffees/Expresso.svg" alt="Café Expresso" />
+      <img src={item.image} alt="Café Expresso" />
       <div>
-        <p>Expresso Tradicional</p>
+        <p>{item.name}</p>
         <ActionsContainer>
-          <Counter />
-          <button>
+          <Counter
+            addItemToCart={handleAddItemToCart}
+            removeItemFromCart={handleRemoveItemFromCart}
+            value={item.quantity}
+          />
+          <button onClick={handleRemoveItemFromCart}>
             <Trash size={16} color="#8047F8" />
             <p>REMOVER</p>
           </button>
         </ActionsContainer>
       </div>
-      <PriceText>R$9.90</PriceText>
+      <PriceText>R${item.price}</PriceText>
     </CheckoutCardContainer>
   )
 }

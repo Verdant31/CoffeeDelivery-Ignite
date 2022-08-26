@@ -1,17 +1,10 @@
 import { useEffect, useState } from 'react'
+import { CartItem } from '../../../../@types/cart'
 import { CoffeeCard } from '../CoffeeCard'
 import { CoffeesContainer } from './styles'
 
-export type Coffee = {
-  name: 'string'
-  price: number
-  image: string
-  desc: string
-  tags: string[]
-}
-
 export function CoffeeList() {
-  const [coffees, setCoffees] = useState<Coffee[]>([])
+  const [coffees, setCoffees] = useState<CartItem[]>([])
 
   useEffect(() => {
     const getCoffes = async () => {

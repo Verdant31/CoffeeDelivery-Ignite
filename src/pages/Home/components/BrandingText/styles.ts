@@ -3,7 +3,6 @@ import styled from 'styled-components'
 export const TextContainer = styled.div`
   display: flex;
   align-items: center;
-  min-width: 15rem;
   gap: 0.75rem;
   p {
     font-size: 1rem;

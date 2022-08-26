@@ -3,7 +3,9 @@ export type CartItem = {
   price: number
   desc: string
   image: string
-  tags: string
+  tags: string[]
+  id: number
+  quantity: number
 }
 
 export type CartState = {

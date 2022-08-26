@@ -27,16 +27,17 @@ export const MainContainer = styled.div`
   width: 100%;
   margin-top: 5.875rem;
   align-items: center;
+  justify-content: center;
   margin-bottom: 6.75rem;
   section:first-of-type {
   }
 `
 
 export const BrandingItemsContainer = styled.div`
-  display: flex;
+  display: grid;
+  width: 38rem;
   margin-top: 5.125rem;
-  gap: 2.5rem;
+  grid-template-columns: repeat(2, 1fr);
   row-gap: 1.25rem;
-  column-gap: 2.5rem;
   flex-wrap: wrap;
 `

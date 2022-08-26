@@ -1,12 +1,22 @@
 import { Minus, Plus } from 'phosphor-react'
 import { CounterContainer } from './styles'
 
-export function Counter() {
+interface CounterProps {
+  value?: number
+  addItemToCart: () => void
+  removeItemFromCart: () => void
+}
+
+export function Counter({
+  value = 0,
+  addItemToCart,
+  removeItemFromCart,
+}: CounterProps) {
   return (
     <CounterContainer>
-      <Minus size={14} weight="bold" />
-      1
-      <Plus size={14} weight="bold" />
+      <Minus onClick={removeItemFromCart} size={14} weight="bold" />
+      {value}
+      <Plus onClick={addItemToCart} size={14} weight="bold" />
     </CounterContainer>
   )
 }

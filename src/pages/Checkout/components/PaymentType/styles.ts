@@ -25,8 +25,9 @@ export const PaymentOptionsContainer = styled.div`
   align-items: center;
   justify-content: center;
   gap: 0.875rem;
-
-  div {
+  button {
+    border: none;
+    text-decoration: none;
     display: flex;
     align-items: center;
     background: ${(props) => props.theme.baseButton};
@@ -34,8 +35,18 @@ export const PaymentOptionsContainer = styled.div`
     gap: 0.875rem;
     border-radius: 8px;
     min-width: 11.1668rem;
+    transition: 0.3s;
+    line-height: 0;
+
     p {
       font-size: 0.75rem;
     }
+  }
+  button:hover {
+    background: ${(props) => props.theme.baseHover};
+  }
+  button:focus {
+    border: 1px solid ${(props) => props.theme.brandPurple};
+    background-color: ${(props) => props.theme.brandPurpleLight};
   }
 `

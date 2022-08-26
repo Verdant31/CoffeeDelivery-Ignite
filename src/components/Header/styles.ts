@@ -25,6 +25,7 @@ export const Location = styled.div`
 export const InformationContainer = styled.div`
   display: flex;
   align-items: center;
+  position: relative;
   gap: 0.75rem;
   height: 2.375rem;
   a {
@@ -33,5 +34,20 @@ export const InformationContainer = styled.div`
     line-height: 0;
     color: ${(props) => props.theme.brandYellowDark};
     background: ${(props) => props.theme.brandYellowLight};
+    color: '#fff';
+  }
+  strong {
+    position: absolute;
+    top: -8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    right: -10px;
+    border-radius: 50%;
+    color: #fff;
+    background: ${(props) => props.theme.brandYellowDark};
+    width: 1.25rem;
+    height: 1.25rem;
+    font-size: 0.875rem;
   }
 `

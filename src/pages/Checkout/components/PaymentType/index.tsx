@@ -16,18 +16,18 @@ export function PaymentType() {
         </div>
       </TitleContainer>
       <PaymentOptionsContainer>
-        <div>
+        <button>
           <CreditCard size={16} color="#8047F8" />
           <p>CARTÃO DE CRÉDITO</p>
-        </div>
-        <div>
+        </button>
+        <button>
           <Bank size={16} color="#8047F8" />
           <p>CARTÃO DE DÉBITO</p>
-        </div>
-        <div>
+        </button>
+        <button>
           <Money size={16} color="#8047F8" />
           <p>DINHEIRO</p>
-        </div>
+        </button>
       </PaymentOptionsContainer>
     </PaymentTypeContainer>
   )

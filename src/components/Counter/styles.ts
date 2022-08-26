@@ -12,4 +12,7 @@ export const CounterContainer = styled.div`
   svg {
     color: ${(props) => props.theme.brandPurple};
   }
+  svg:hover {
+    color: ${(props) => props.theme.brandPurpleDark};
+  }
 `

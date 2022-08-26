@@ -69,6 +69,10 @@ export const CardFooter = styled.footer`
     line-height: 0;
     padding: 0.4rem;
     background-color: ${(props) => props.theme.brandPurpleDark};
+    transition: 0.3s;
+  }
+  button:hover {
+    background-color: ${(props) => props.theme.brandPurple};
   }
 `
 
