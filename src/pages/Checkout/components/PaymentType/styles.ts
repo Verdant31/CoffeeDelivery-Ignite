@@ -8,7 +8,7 @@ export const PaymentTypeContainer = styled.div`
   background: ${(props) => props.theme.baseCard};
 `
 
-export const TitleContainer = styled.form`
+export const TitleContainer = styled.div`
   display: flex;
   gap: 0.5rem;
   border-radius: 6px;
@@ -25,28 +25,27 @@ export const PaymentOptionsContainer = styled.div`
   align-items: center;
   justify-content: center;
   gap: 0.875rem;
-  button {
-    border: none;
-    text-decoration: none;
-    display: flex;
-    align-items: center;
-    background: ${(props) => props.theme.baseButton};
-    padding: 1rem;
-    gap: 0.875rem;
-    border-radius: 8px;
-    min-width: 11.1668rem;
-    transition: 0.3s;
-    line-height: 0;
+`
 
-    p {
-      font-size: 0.75rem;
-    }
+export const PaymentTypeButton = styled.button`
+  border: none;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  background: ${(props) => props.theme.baseButton};
+  padding: 1rem;
+  gap: 0.875rem;
+  border-radius: 8px;
+  min-width: 11.1668rem;
+  transition: 0.3s;
+  p {
+    font-size: 0.75rem;
   }
-  button:hover {
+  :hover {
     background: ${(props) => props.theme.baseHover};
   }
-  button:focus {
-    border: 1px solid ${(props) => props.theme.brandPurple};
+  :focus {
+    outline: 1px solid ${(props) => props.theme.brandPurple};
     background-color: ${(props) => props.theme.brandPurpleLight};
   }
 `

@@ -1,44 +1,37 @@
 // React
-import { useState } from 'react'
+import { useState } from "react";
 // Components
-import { HeaderForm } from '../HeaderForm'
+import { HeaderForm } from "../HeaderForm";
 // Styles
 import {
   AddressFormContainer,
   FormInput,
   FormOptionalInput,
   WrapInputs,
-} from './styles'
+} from "./styles";
 // Form
-import { useFormContext } from 'react-hook-form'
+import { useFormContext } from "react-hook-form";
 
 interface AddressFormProps {
-  submitOrder: (data: any) => void
+  submitOrder: (data: any) => void;
 }
 
 export function AddressForm({ submitOrder }: AddressFormProps) {
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useFormContext()
-  const [hasFocus, setHasFocus] = useState(false)
-
   return (
     <AddressFormContainer onSubmit={handleSubmit(submitOrder)}>
       <HeaderForm />
-      <FormInput {...register('cep')} placeholder="CEP" width="12.5rem" />
-      <FormInput {...register('street')} placeholder="Rua" width="100%" />
+      <FormInput {...register("cep")} placeholder="CEP" width="12.5rem" />
+      <FormInput {...register("street")} placeholder="Rua" width="100%" />
       <WrapInputs>
         <FormInput
-          {...register('number')}
+          {...register("number")}
           placeholder="Numero"
           mr="12px"
           width="12.5rem"
         />
         <FormOptionalInput hasFocus={hasFocus}>
           <input
-            {...register('complement')}
+            {...register("complement")}
             onBlur={() => setHasFocus(false)}
             onFocus={() => setHasFocus(true)}
             placeholder="Complemento"
@@ -46,19 +39,19 @@ export function AddressForm({ submitOrder }: AddressFormProps) {
           <i>Opcional</i>
         </FormOptionalInput>
         <FormInput
-          {...register('district')}
+          {...register("district")}
           placeholder="Bairro"
           mr="12px"
           width="12.5rem"
         />
         <FormInput
-          {...register('city')}
+          {...register("city")}
           placeholder="Cidade"
           mr="12px"
           width="17.5rem"
         />
-        <FormInput {...register('uf')} placeholder="UF" width="10%" />
+        <FormInput {...register("uf")} placeholder="UF" width="10%" />
       </WrapInputs>
     </AddressFormContainer>
-  )
+  );
 }

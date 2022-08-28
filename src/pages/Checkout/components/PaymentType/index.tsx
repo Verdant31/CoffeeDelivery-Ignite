@@ -1,11 +1,19 @@
-import { Bank, CreditCard, CurrencyDollar, Money } from 'phosphor-react'
+import { Bank, CreditCard, CurrencyDollar, Money } from "phosphor-react";
+import { useState } from "react";
+import { useFormContext } from "react-hook-form";
+import { PaymentOptions } from "../..";
 import {
   PaymentTypeContainer,
   TitleContainer,
   PaymentOptionsContainer,
-} from './styles'
+  PaymentTypeButton,
+} from "./styles";
 
-export function PaymentType() {
+interface PaymentTypeProps {
+  handleChangePaymentType: (option: PaymentOptions) => void;
+}
+
+export function PaymentType({ handleChangePaymentType }: PaymentTypeProps) {
   return (
     <PaymentTypeContainer>
       <TitleContainer>
@@ -16,19 +24,28 @@ export function PaymentType() {
         </div>
       </TitleContainer>
       <PaymentOptionsContainer>
-        <button>
+        <PaymentTypeButton
+          type="button"
+          onClick={() => handleChangePaymentType("Cartão de Crédito")}
+        >
           <CreditCard size={16} color="#8047F8" />
           <p>CARTÃO DE CRÉDITO</p>
-        </button>
-        <button>
+        </PaymentTypeButton>
+        <PaymentTypeButton
+          type="button"
+          onClick={() => handleChangePaymentType("Cartão de Débito")}
+        >
           <Bank size={16} color="#8047F8" />
           <p>CARTÃO DE DÉBITO</p>
-        </button>
-        <button>
+        </PaymentTypeButton>
+        <PaymentTypeButton
+          type="button"
+          onClick={() => handleChangePaymentType("Dinheiro")}
+        >
           <Money size={16} color="#8047F8" />
           <p>DINHEIRO</p>
-        </button>
+        </PaymentTypeButton>
       </PaymentOptionsContainer>
     </PaymentTypeContainer>
-  )
+  );
 }

@@ -1,13 +1,16 @@
-import { CurrencyDollar, MapPin, Timer } from 'phosphor-react'
+import { CurrencyDollar, MapPin, Timer } from "phosphor-react";
+import { useOrder } from "../../contexts/OrderContext";
 import {
   Container,
   IconContainer,
   OrderInfoContainer,
   TextContainer,
   Title,
-} from './styles'
+} from "./styles";
 
 export function ConfirmedOrder() {
+  const { order } = useOrder();
+  const address = order?.address;
   return (
     <Container>
       <section>
@@ -21,8 +24,13 @@ export function ConfirmedOrder() {
               <MapPin color="#fff" weight="fill" />
             </IconContainer>
             <p>
-              Entrega em <span> Rua João Daniel Martinelli, 102</span>
-              <p>Farrapos - Porto Alegre, RS</p>
+              Entrega em{" "}
+              <span>
+                {address?.street}, {address?.number}
+              </span>
+              <p>
+                {address?.district} - {address?.city} , {address?.uf}
+              </p>
             </p>
           </TextContainer>
           <TextContainer>
@@ -40,7 +48,7 @@ export function ConfirmedOrder() {
             </IconContainer>
             <p>
               <p>Pagamento na entrega</p>
-              <span>Cartão de Crédito</span>
+              <span>{order?.paymentType}</span>
             </p>
           </TextContainer>
         </OrderInfoContainer>
@@ -49,5 +57,5 @@ export function ConfirmedOrder() {
         <img src="motorcycle.svg" alt="Um homem dirigindo uma moto" />
       </section>
     </Container>
-  )
+  );
 }
